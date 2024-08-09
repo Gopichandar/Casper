@@ -17,7 +17,8 @@ This theme has lots of code comments to help explain what's going on just by rea
 **The main files are:**
 
 - `default.hbs` - The parent template file, which includes your global header/footer
-- `index.hbs` - The main template to generate a list of posts, usually the home page
+- `home.hbs` - Default home page 
+- `index.hbs` - The main template to generate a list of posts
 - `post.hbs` - The template used to render individual posts
 - `page.hbs` - Used for individual pages
 - `tag.hbs` - Used for tag archives, eg. "all posts tagged with `news`"
@@ -29,6 +30,21 @@ One neat trick is that you can also create custom one-off templates by adding th
 - `tag-news.hbs` - Custom template for `/tag/news/` archive
 - `author-ali.hbs` - Custom template for `/author/ali/` archive
 
+#Routes.yaml
+
+```
+routes:
+  /: home
+    
+collections: 
+  /blog/:
+    permalink: /blog/{slug}/
+    template: index
+
+taxonomies:
+  tag: /tag/{slug}/
+  author: /author/{slug}/
+```
 
 # Development
 
